@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  # NGINX
+  web:
+    image: nginx:latest
+    ports: 
+      - "80:80"
+    volumes:
+      - ./docker/nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf
+
+  # PHP
+  app:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    volumes:
+      - ./public:/public
+      - ./public/assets/css:/public/assets/css
+      - ./database:/database
+
+  # MYSQL
+  db:
+    image: mysql:latest
+    volumes:
+      - mysqldata:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+
+# REDIS
+volumes:
+  mysqldata:

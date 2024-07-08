@@ -1,0 +1,34 @@
+body {
+    background-color: #212529;
+    color: #f8f9fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.card {
+    background-color: #343a40;
+    border: none;
+    width: 100%;
+    max-width: 400px;
+}
+.btn-primary {
+    background-color: #0d6efd;
+    border: none;
+}
+.btn-danger {
+    background-color: #dc3545;
+    border: none;
+}
+.btn-secondary {
+    background-color: #6c757d;
+    border: none;
+}
+p {
+    color: white;
+}
+
+h3 {
+    color: white;
+}
